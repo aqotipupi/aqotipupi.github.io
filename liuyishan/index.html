@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>柳毅山 - 龙女传说的发源地与自然人文探秘</title>
+    <meta name="description" content="柳毅山是唐代传奇《柳毅传》中龙女传说的核心发生地。本站致力于探索柳毅山的自然风光、历史文化遗迹、民间传说故事以及相关的旅游指南。">
+    <meta name="keywords" content="柳毅山, 龙女传说, 柳毅传, 唐代传奇, 旅游指南, 民间故事">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #d35400;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.05);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        .cta-btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .cta-btn:hover {
+            background-color: #e67e22;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://picsum.photos/seed/liuyishan/1920/1080.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 12px 35px;
+            background-color: var(--accent-color);
+            color: white;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-2px);
+            background-color: #e67e22;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 80px 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        /* Legend Section */
+        .legend-section {
+            background-color: #eef2f3;
+            padding: 80px 0;
+        }
+
+        .legend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .legend-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .legend-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .legend-icon {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .legend-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.25rem;
+        }
+
+        .legend-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Spots Section */
+        .spots-section {
+            padding: 80px 0;
+        }
+
+        .spot-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .spot-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .spot-img {
+            height: 200px;
+            background-color: #ddd;
+            overflow: hidden;
+        }
+
+        .spot-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .spot-card:hover .spot-img img {
+            transform: scale(1.05);
+        }
+
+        .spot-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .spot-tag {
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .spot-info h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .spot-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .spot-link {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .spot-link::after {
+            content: '→';
+            margin-left: 5px;
+            transition: margin-left 0.3s;
+        }
+
+        .spot-link:hover::after {
+            margin-left: 10px;
+        }
+
+        /* Travel Guide Section */
+        .guide-section {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 80px 0;
+        }
+
+        .guide-section .section-title {
+            color: white;
+        }
+
+        .guide-section .section-subtitle {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .guide-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .guide-item {
+            margin-bottom: 30px;
+        }
+
+        .guide-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .guide-item h4::before {
+            content: '';
+            display: block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+        }
+
+        .guide-item p {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.95rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            margin-bottom: 15px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding: 0 20px;
+            background-color: #f9f9f9;
+            color: var(--text-light);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px;
+            max-height: 200px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: #888;
+            padding: 50px 0 20px;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+
+            nav ul {
+                margin: 15px 0;
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-grid, .guide-content {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">柳毅<span>山</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#about" class="active">传说起源</a></li>
+                    <li><a href="#spots">胜景探秘</a></li>
+                    <li><a href="#guide">游览指南</a></li>
+                    <li><a href="#faq">常见问答</a></li>
+                </ul>
+            </nav>
+            <a href="#guide" class="cta-btn">开始游览</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>柳毅山</h1>
+                <p>探寻唐代传奇《柳毅传》中的龙宫秘境，感受千年神话与自然山水的交融。</p>
+                <a href="#about" class="hero-btn">了解传说</a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image">
+                        <img src="https://picsum.photos/seed/liuyishan_mountain/600/400.jpg" alt="柳毅山远景">
+                    </div>
+                    <div class="about-text">
+                        <h2>千年传说的发源地</h2>
+                        <p>柳毅山，因唐代传奇故事《柳毅传》而闻名于世。故事中，书生柳毅路过泾河，受龙女之托，前往泾阳为龙女传书，最终在洞庭湖龙宫救出受苦的龙女。虽然故事中具体的地理坐标在历代注疏中存在多种说法，但柳毅山作为这一文化符号的承载地，始终吸引着无数游客与文学爱好者前来寻访。</p>
+                        <p>这里不仅有着秀美的自然风光，更沉淀着深厚的民间文化与历史底蕴。每一块岩石、每一条溪流，似乎都在诉说着那段跨越人神界限的千古佳话。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Legend Highlights -->
+        <section class="legend-section">
+            <div class="container">
+                <h2 class="section-title">故事核心要素</h2>
+                <p class="section-subtitle">《柳毅传》构建了一个宏大而细腻的奇幻世界，以下是故事中的关键场景与象征。</p>
+                <div class="legend-grid">
+                    <article class="legend-card">
+                        <div class="legend-icon">📖</div>
+                        <h3>泾河传书</h3>
+                        <p>故事的开端。龙女在泾阳牧羊，受丈夫兄弟虐待，向路过的书生柳毅倾诉苦难，请求代为传书给她的家人。</p>
+                    </article>
+                    <article class="legend-card">
+                        <div class="legend-icon">🚢</div>
+                        <h3>洞庭入水</h3>
+                        <p>柳毅按照龙女指示，来到洞庭湖边，吹响玉箫。龙君闻声派水族迎接，展现神灵世界的秩序与威仪。</p>
+                    </article>
+                    <article class="legend-card">
+                        <div class="legend-icon">🏰</div>
+                        <h3>龙宫奇遇</h3>
+                        <p>柳毅在洞庭君的协助下，见到了受难的龙女，并最终帮助她脱离苦海，改嫁给了钱塘君的兄弟。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Spots Section -->
+        <section id="spots" class="spots-section">
+            <div class="container">
+                <h2 class="section-title">山川胜景</h2>
+                <p class="section-subtitle">在柳毅山，您可以实地感受故事中描写的山水意境。</p>
+                <div class="spot-list">
+                    <article class="spot-card">
+                        <div class="spot-img">
+                            <img src="https://picsum.photos/seed/cave/400/300.jpg" alt="传书洞">
+                        </div>
+                        <div class="spot-info">
+                            <span class="spot-tag">自然景观</span>
+                            <h3>传书洞</h3>
+                            <p>相传是当年龙女向柳毅传信、柳毅吹箫入水的地方。洞内钟乳石千姿百态，光影交错，宛如龙宫一角。</p>
+                            <a href="#" class="spot-link">查看详情</a>
+                        </div>
+                    </article>
+                    <article class="spot-card">
+                        <div class="spot-img">
+                            <img src="https://picsum.photos/seed/waterfall/400/300.jpg" alt="龙女潭">
+                        </div>
+                        <div class="spot-info">
+                            <span class="spot-tag">人文遗迹</span>
+                            <h3>龙女潭</h3>
+                            <p>一潭碧水，深不见底。传说龙女在此洗濯衣裳，潭水终年不涸，清澈见底，是祈福纳祥的好去处。</p>
+                            <a href="#" class="spot-link">查看详情</a>
+                        </div>
+                    </article>
+                    <article class="spot-card">
+                        <div class="spot-img">
+                            <img src="https://picsum.photos/seed/temple/400/300.jpg" alt="柳毅庙">
+                        </div>
+                        <div class="spot-info">
+                            <span class="spot-tag">古建筑</span>
+                            <h3>柳毅庙</h3>
+                            <p>山间供奉着柳毅与龙女的塑像，香火鼎盛。庙宇依山而建，环境清幽，是纪念这段传奇故事的中心。</p>
+                            <a href="#" class="spot-link">查看详情</a>
+                        </div>
+                    </article>
+                    <article class="spot-card">
+                        <div class="spot-img">
+                            <img src="https://picsum.photos/seed/peak/400/300.jpg" alt="望云台">
+                        </div>
+                        <div class="spot-info">
+                            <span class="spot-tag">登高揽胜</span>
+                            <h3>望云台</h3>
+                            <p>登临山顶，可俯瞰群山连绵，云雾缭绕。此处常被游人比作故事中的“云雾山”，意境悠远。</p>
+                            <a href="#" class="spot-link">查看详情</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Travel Guide Section -->
+        <section id="guide" class="guide-section">
+            <div class="container">
+                <h2 class="section-title">游览指南</h2>
+                <p class="section-subtitle">为了获得最佳的游览体验，请参考以下实用信息。</p>
+                <div class="guide-content">
+                    <div>
+                        <div class="guide-item">
+                            <h4>开放时间</h4>
+                            <p>景区全年开放，夏季建议在上午8:00至下午17:00之间游览，此时光线柔和，适合摄影。冬季请注意保暖，部分户外栈道可能结冰。</p>
+                        </div>
+                        <div class="guide-item">
+                            <h4>交通方式</h4>
+                            <p>建议自驾前往，导航至“柳毅山风景区”。公共交通可在附近县城换乘旅游专线巴士，车程约1小时。</p>
+                        </div>
+                        <div class="guide-item">
+                            <h4>游览路线推荐</h4>
+                            <p>经典路线：山门 → 传书洞 → 龙女潭 → 柳毅庙 → 望云台 → 返程。全程徒步约需2-3小时，体力消耗中等。</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="guide-item">
+                            <h4>周边美食</h4>
+                            <p>景区周边农家乐林立，推荐品尝当地特色的“龙女豆腐”和“山野菜”，食材多为纯天然生长，口感鲜美。</p>
+                        </div>
+                        <div class="guide-item">
+                            <h4>住宿建议</h4>
+                            <p>若想深度体验，可选择住在山脚下的民宿，清晨可避开人流，独享山间宁静。山顶设有简易观景台，适合露营爱好者。</p>
+                        </div>
+                        <div class="guide-item">
+                            <h4>注意事项</h4>
+                            <p>请爱护文物古迹，勿在龙宫洞穴内乱刻乱画。游览时请穿着防滑舒适的鞋子，注意安全，切勿翻越护栏。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section">
+            <h2 class="section-title">常见问题</h2>
+            <div class="faq-item">
+                <div class="faq-question">柳毅山具体在哪里？</div>
+                <div class="faq-answer">柳毅山并非单一的具体地名，而是泛指与《柳毅传》故事相关的文化地理区域。根据历史考证，故事中的“泾阳”与“洞庭”可能对应不同的地理位置，目前国内有多处地方自称柳毅山或以此为传说发源地进行旅游开发。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">故事中的柳毅和龙女是真实存在的吗？</div>
+                <div class="faq-answer">《柳毅传》是唐代传奇小说，属于文学作品。故事中的人物和情节均为虚构，旨在通过人神相恋的题材，表达对自由爱情和正义的向往。但作为文化遗产，它对后世文学和民间信仰产生了深远影响。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">去柳毅山需要准备什么？</div>
+                <div class="faq-answer">建议携带防晒用品（帽子、防晒霜）、饮用水、舒适的登山鞋以及相机。如果是夏季，还需准备防蚊虫药。此外，了解一些唐代背景知识会让游览体验更加丰富。</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于柳毅山</h4>
+                    <p>致力于挖掘和传播中国古典文学中的奇幻之美，让更多人了解《柳毅传》的文化价值。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#about">传说起源</a></li>
+                        <li><a href="#spots">景点介绍</a></li>
+                        <li><a href="#guide">游览攻略</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li>邮箱：contact@liuyishan-guide.com</li>
+                        <li>电话：400-123-4567</li>
+                        <li>地址：中国·某省某市柳毅山风景区</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 柳毅山文化传播网 版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的FAQ折叠交互逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // 关闭其他所有打开的项
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // 切换当前项
+                    item.classList.toggle('active');
+                });
+            });
+
+            // 简单的平滑滚动效果修正（针对旧浏览器）
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
