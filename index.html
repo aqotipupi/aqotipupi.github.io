@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JM天堂提供高清动漫、漫画及二次元相关内容的在线浏览与资讯服务，致力于为二次元爱好者打造舒适的内容阅读体验。">
+    <meta name="keywords" content="JM天堂,动漫,漫画,二次元,在线阅读">
+    <title>JM天堂-二次元动漫漫画在线阅读与资源分享</title>
+    <style>
+        :root {
+            --primary-color: #ff6b81;
+            --secondary-color: #ff4757;
+            --accent-color: #2ed573;
+            --bg-color: #f1f2f6;
+            --card-bg: #ffffff;
+            --text-main: #2f3542;
+            --text-sub: #747d8c;
+            --nav-height: 70px;
+            --radius: 12px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-top: var(--nav-height);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 导航栏 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--nav-height);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-main);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--secondary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 71, 87, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 71, 87, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            margin-bottom: 40px;
+            height: 400px;
+            border-radius: 0 0 30px 30px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://picsum.photos/seed/animehero/1920/600') center/cover no-repeat;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        /* 分类导航 */
+        .category-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .cat-tag {
+            padding: 8px 24px;
+            background: white;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            color: var(--text-sub);
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .cat-tag:hover, .cat-tag.active {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* 内容区块 */
+        .section-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 25px;
+        }
+
+        .section-title h2 {
+            font-size: 1.8rem;
+            color: var(--text-main);
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .section-title h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 24px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        .more-link {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .more-link:hover {
+            color: var(--secondary-color);
+        }
+
+        /* 热门推荐 Grid */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            background-color: #ddd;
+        }
+
+        .card-body {
+            padding: 15px;
+        }
+
+        .card-tag {
+            font-size: 0.75rem;
+            color: var(--primary-color);
+            background: rgba(255, 107, 129, 0.1);
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-sub);
+        }
+
+        .status-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            backdrop-filter: blur(4px);
+        }
+
+        /* 畅销榜单 List */
+        .list-container {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .rank-list {
+            width: 100%;
+        }
+
+        .rank-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            transition: var(--transition);
+        }
+
+        .rank-item:last-child {
+            border-bottom: none;
+        }
+
+        .rank-item:hover {
+            background-color: #fafafa;
+        }
+
+        .rank-num {
+            font-size: 2rem;
+            font-weight: 800;
+            width: 50px;
+            text-align: center;
+            color: #ddd;
+            font-style: italic;
+        }
+
+        .rank-item:nth-child(1) .rank-num { color: #ff9f43; }
+        .rank-item:nth-child(2) .rank-num { color: #ff6b81; }
+        .rank-item:nth-child(3) .rank-num { color: #feca57; }
+
+        .rank-thumb {
+            width: 80px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+
+        .rank-info {
+            flex: 1;
+        }
+
+        .rank-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--text-main);
+        }
+
+        .rank-desc {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            margin-bottom: 8px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .rank-stats {
+            display: flex;
+            gap: 15px;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .rank-btn {
+            padding: 8px 16px;
+            background: var(--bg-color);
+            color: var(--text-main);
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        /* 底部 */
+        footer {
+            background: #fff;
+            padding: 60px 0 30px;
+            margin-top: 60px;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            color: var(--text-sub);
+            margin-top: 15px;
+            font-size: 0.95rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .navbar .container {
+                padding: 0 15px;
+            }
+
+            .nav-links {
+                display: none; /* 移动端简化：隐藏菜单 */
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .card-img {
+                height: 200px;
+            }
+
+            .rank-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .rank-thumb {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .rank-stats {
+                justify-content: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部导航 -->
+    <header class="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <span>JM</span>天堂
+            </a>
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#">动漫连载</a>
+                <a href="#">漫画专区</a>
+                <a href="#">剧场版</a>
+                <a href="#">资源下载</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="btn btn-outline">登录</button>
+                <button class="btn btn-primary">注册</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero Banner -->
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <h1>探索无限二次元世界</h1>
+                <p>汇集最新热门动漫与漫画，高清画质，畅快阅读。JM天堂为您提供最优质的在线资源服务。</p>
+                <button class="btn btn-primary" style="font-size: 1.1rem; padding: 12px 35px;">立即开始探索</button>
+            </div>
+        </section>
+
+        <!-- 分类标签 -->
+        <section class="category-nav">
+            <div class="cat-tag active">全部</div>
+            <div class="cat-tag">日漫</div>
+            <div class="cat-tag">国漫</div>
+            <div class="cat-tag">美漫</div>
+            <div class="cat-tag">少女漫</div>
+            <div class="cat-tag">少年漫</div>
+            <div class="cat-tag">科幻</div>
+            <div class="cat-tag">悬疑</div>
+        </section>
+
+        <!-- 热门推荐 -->
+        <section class="section-title">
+            <h2>热门推荐</h2>
+            <a href="#" class="more-link">查看更多 &rarr;</a>
+        </section>
+        <section class="grid-container">
+            <article class="card">
+                <div class="status-badge">连载中</div>
+                <img src="https://picsum.photos/seed/anime1/300/400" alt="动漫封面" class="card-img">
+                <div class="card-body">
+                    <span class="card-tag">热血</span>
+                    <h3 class="card-title">星辰变之觉醒</h3>
+                    <div class="card-meta">
+                        <span>更新至 128 话</span>
+                        <span>9.8分</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="status-badge">完结</div>
+                <img src="https://picsum.photos/seed/anime2/300/400" alt="动漫封面" class="card-img">
+                <div class="card-body">
+                    <span class="card-tag">恋爱</span>
+                    <h3 class="card-title">樱花树下遇见你</h3>
+                    <div class="card-meta">
+                        <span>全 24 集</span>
+                        <span>9.5分</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="status-badge">连载中</div>
+                <img src="https://picsum.photos/seed/anime3/300/400" alt="动漫封面" class="card-img">
+                <div class="card-body">
+                    <span class="card-tag">科幻</span>
+                    <h3 class="card-title">赛博纪元：未来</h3>
+                    <div class="card-meta">
+                        <span>更新至 45 话</span>
+                        <span>9.2分</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="status-badge">连载中</div>
+                <img src="https://picsum.photos/seed/anime4/300/400" alt="动漫封面" class="card-img">
+                <div class="card-body">
+                    <span class="card-tag">奇幻</span>
+                    <h3 class="card-title">魔法学院的秘密</h3>
+                    <div class="card-meta">
+                        <span>更新至 89 话</span>
+                        <span>9.6分</span>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- 畅销榜单 -->
+        <section class="section-title">
+            <h2>本周畅销榜单</h2>
+            <a href="#" class="more-link">查看榜单 &rarr;</a>
+        </section>
+        <section class="list-container">
+            <div class="rank-list">
+                <div class="rank-item">
+                    <div class="rank-num">1</div>
+                    <img src="https://picsum.photos/seed/rank1/100/120" alt="封面" class="rank-thumb">
+                    <div class="rank-info">
+                        <h3 class="rank-title">深海危机：觉醒</h3>
+                        <p class="rank-desc">当深海巨兽苏醒，人类最后的防线面临崩溃。主角必须寻找传说中的古老武器...</p>
+                        <div class="rank-stats">
+                            <span>热度: 2.3M</span>
+                            <span>收藏: 180K</span>
+                            <span>评论: 5.6K</span>
+                        </div>
+                    </div>
+                    <button class="rank-btn">阅读</button>
+                </div>
+
+                <div class="rank-item">
+                    <div class="rank-num">2</div>
+                    <img src="https://picsum.photos/seed/rank2/100/120" alt="封面" class="rank-thumb">
+                    <div class="rank-info">
+                        <h3 class="rank-title">异世界转生指南</h3>
+                        <p class="rank-desc">转生到异世界，却变成了只有1级的新手。在这个充满魔法的世界里，如何生存下去？</p>
+                        <div class="rank-stats">
+                            <span>热度: 1.8M</span>
+                            <span>收藏: 150K</span>
+                            <span>评论: 4.2K</span>
+                        </div>
+                    </div>
+                    <button class="rank-btn">阅读</button>
+                </div>
+
+                <div class="rank-item">
+                    <div class="rank-num">3</div>
+                    <img src="https://picsum.photos/seed/rank3/100/120" alt="封面" class="rank-thumb">
+                    <div class="rank-info">
+                        <h3 class="rank-title">校园侦探事件簿</h3>
+                        <p class="rank-desc">看似平静的校园背后隐藏着无数谜团。天才侦探与普通学生的合作，揭开真相。</p>
+                        <div class="rank-stats">
+                            <span>热度: 1.5M</span>
+                            <span>收藏: 120K</span>
+                            <span>评论: 3.8K</span>
+                        </div>
+                    </div>
+                    <button class="rank-btn">阅读</button>
+                </div>
+
+                <div class="rank-item">
+                    <div class="rank-num">4</div>
+                    <img src="https://picsum.photos/seed/rank4/100/120" alt="封面" class="rank-thumb">
+                    <div class="rank-info">
+                        <h3 class="rank-title">机械之心</h3>
+                        <p class="rank-desc">拥有人类情感的机器人，在这个冰冷的世界里寻找存在的意义。</p>
+                        <div class="rank-stats">
+                            <span>热度: 1.2M</span>
+                            <span>收藏: 98K</span>
+                            <span>评论: 2.9K</span>
+                        </div>
+                    </div>
+                    <button class="rank-btn">阅读</button>
+                </div>
+
+                <div class="rank-item">
+                    <div class="rank-num">5</div>
+                    <img src="https://picsum.photos/seed/rank5/100/120" alt="封面" class="rank-thumb">
+                    <div class="rank-info">
+                        <h3 class="rank-title">猎魔人日记</h3>
+                        <p class="rank-desc">猎杀恶魔的猎人，背负着沉重的过去。新的任务，新的挑战，等待着他。</p>
+                        <div class="rank-stats">
+                            <span>热度: 1.0M</span>
+                            <span>收藏: 85K</span>
+                            <span>评论: 2.5K</span>
+                        </div>
+                    </div>
+                    <button class="rank-btn">阅读</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo"><span>JM</span>天堂</div>
+                    <p>JM天堂致力于为动漫爱好者提供最新、最全的二次元资源。我们尊重版权，坚持分享优质内容。</p>
+                </div>
+                <div class="footer-col">
+                    <h3>网站导航</h3>
+                    <ul>
+                        <li><a href="#">动漫首页</a></li>
+                        <li><a href="#">漫画专区</a></li>
+                        <li><a href="#">排行榜</a></li>
+                        <li><a href="#">分类浏览</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>帮助中心</h3>
+                    <ul>
+                        <li><a href="#">使用指南</a></li>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">联系我们</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>关于我们</h3>
+                    <ul>
+                        <li><a href="#">JM简介</a></li>
+                        <li><a href="#">加入团队</a></li>
+                        <li><a href="#">广告合作</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 JM天堂 版权所有. 本站内容仅供学习交流，请勿用于商业用途。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+  </html>
